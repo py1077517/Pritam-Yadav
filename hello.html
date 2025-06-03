@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <style>
+    #changingText {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ee0000;
+      text-align: center;
+      margin-top: 100px;
+    }
+  </style>
+   
+    <title>Home page</title>
+    <style>
+    
+
+      body {
+    background-image: url('4040.jpg');
+    background-size: cover;       /* Make image cover entire area */
+    background-repeat: no-repeat; /* Prevent tiling */
+    background-position: center;  /* Center the image */
+  }
+         
+      <button style="padding: 20px 40px; font-size: 18px;" >Contact Us</button>  
+      
+       
+    
+      
+  
+  
+
+
+         
+
+
+
+         
+    
+  </style>
+</head>
+<body>
+    <h1  style="text-align: center;">Welcome To  Web Page Design</h1>
+  <div id="changingText">Welcome!</div>
+
+  <script>
+    const texts = [
+      "Welcome!",
+      "Learn Web Development",
+      "Build Awesome Apps",
+      "Keep Practicing",
+      "You Can Do It!"
+    ];
+
+    let index = 0;
+    const element = document.getElementById("changingText");
+
+    setInterval(() => {
+      index = (index + 1) % texts.length; // loop back to start
+      element.textContent = texts[index];
+    }, 1000); // 1000 milliseconds = 1 second
+  </script>
+   <image src="images.jpg" width="500" height="500"> 
+   <image src="1010.jpg" width="500" height="500"> 
+    <p style="color: rgb(235, 235, 235);">Web development is the process of creating, designing, and maintaining websites or web applications.<br> It involves both the frontend (user interface) and backend (server and database) development. <br>Frontend technologies like HTML, CSS, and JavaScript are used to build the visual and interactive parts of a website, <br>while backend technologies such as PHP, Node.js, or Python, along with databases like MySQL or MongoDB, handle the logic, data storage, and server-side operations.<br> Web development also includes aspects like responsive design, user experience (UX), and web security. It is a rapidly growing field with numerous career opportunities for developers and designers alike.
+     <image src="2020.jpg" width="500" height="500">  
+      <image src="3030.jpg" width="500" height="500"> 
+        <a href="yadav.html" >
+  <button>Contact Us For More Information</button>
+</a>
+
+
+
+
+
+
+
+
+</p>                                                    
+
+  
+    
+</body>
+</html>
