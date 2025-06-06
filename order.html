@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Place Order</title>
+  <style>
+    form {
+      padding: 20px;
+      max-width: 400px;
+      border: 1px solid #28a745;
+      margin: auto;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+     body {
+    background-color: rgb(0, 0, 0); /* change this to any color */
+  }
+  input, textarea {
+  height: 30px;       /* box ki height */
+  padding: 4px 8px;   /* andar ka space (upar-niche aur left-right) */
+  font-size: 14px;    /* text size ko bhi chhota kar sakte hain */
+  box-sizing: border-box; /* padding aur border height me add ho jaye */
+}
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;  /* hidden by default */
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+/* Same CSS jo pehle address ke liye diya tha */
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Order: Cool T-Shirt</h2>
+
+  <form action="https://formsubmit.co/py1077517@gmail.com" method="POST">
+    <input type="hidden" name="product" value="Cool T-Shirt">
+
+    <input type="text" name="name" placeholder="Your Name"  required>
+    <input type="text" name="last name" placeholder="Last Name" required>
+    <div class="input-group">
+  <input type="text" id="address" name="address" placeholder="Your Address" autocomplete="off" required>
+  <div id="suggestion-box" class="suggestions"></div>
+</div>
+    
+    <div class="input-group">
+  <input type="text" id="city" name="city" placeholder="Your City" autocomplete="off" required>
+  <div id="city-suggestion-box" class="suggestions"></div>
+</div>
+     <input type="text" name="apartment" placeholder="apartment, suits, etc" required>
+    <div class="input-group">
+  <input type="text" id="state" name="state" placeholder="Your state" autocomplete="off" required>
+  <div id="state-suggestion-box" class="suggestions"></div>
+</div>
+    <input type="tel" name="pin Code" placeholder="pin Code" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+
+    <button type="submit">Place Order</button>
+  </form>
+  
+ <script>
+  const addressInput = document.getElementById('state');
+  const suggestionBox = document.getElementById('suggestion-box');
+
+  // Sample address suggestions - you can add more or get from API
+  const addresses = [
+     "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal"
+  ];
+
+  addressInput.addEventListener('input', () => {
+    const input = addressInput.value.toLowerCase();
+    suggestionBox.innerHTML = '';
+
+    if (!input) {
+      suggestionBox.style.display = 'none';
+      return;
+    }
+
+    const filtered = addresses.filter(addr => addr.toLowerCase().startsWith(input));
+    
+    if (filtered.length === 0) {
+      suggestionBox.style.display = 'none';
+      return;
+    }
+
+    filtered.forEach(addr => {
+      const div = document.createElement('div');
+      div.classList.add('suggestion-item');
+      div.textContent = addr;
+      div.addEventListener('click', () => {
+        addressInput.value = addr;
+        suggestionBox.innerHTML = '';
+        suggestionBox.style.display = 'none';
+      });
+      suggestionBox.appendChild(div);
+    });
+
+    suggestionBox.style.display = 'block';
+  });
+
+  // Hide suggestions when clicking outside the input group
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.input-group')) {
+      suggestionBox.innerHTML = '';
+      suggestionBox.style.display = 'none';
+    }
+  });
+</script>
+
+<script>
+  const cityInput = document.getElementById('city');
+  const citySuggestionBox = document.getElementById('city-suggestion-box');
+
+  const cities = [
+    "Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool"
+,"Itanagar", "Tawang", "Ziro", "Bomdila", "Pasighat"
+  ,"Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Tezpur"
+  ,"Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Darbhanga"
+  ,"Raipur", "Bhilai", "Bilaspur", "Korba", "Durg"
+ ,"Panaji", "Margao", "Vasco da Gama", "Mapusa", "Ponda"
+  ,"Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar"
+  ,"Gurgaon", "Faridabad", "Panipat", "Ambala", "Rohtak"
+ ,"Shimla", "Manali", "Dharamshala", "Solan", "Mandi"
+ ,"Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar"
+  ,"Bengaluru", "Mysuru", "Mangalore", "Hubballi", "Belagavi"
+ ,"Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", "Kannur"
+,"Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain"
+ ,"Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad"
+ ,"Imphal", "Thoubal", "Churachandpur", "Ukhrul", "Bishnupur"
+ ,"Shillong", "Tura", "Nongpoh", "Jowai", "Baghmara"
+ ,"Aizawl", "Lunglei", "Champhai", "Serchhip", "Kolasib"
+  ,"Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha"
+  ,"Bhubaneswar", "Cuttack", "Rourkela", "Puri", "Sambalpur"
+  ,"Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda"
+  ,"Jaipur", "Jodhpur", "Udaipur", "Kota", "Bikaner"
+  ,"Gangtok", "Namchi", "Mangan", "Gyalshing", "Rangpo"
+  ,"Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem"
+  ,"Hyderabad", "Warangal", "Nizamabad", "Khammam", "Karimnagar"
+  ,"Agartala", "Dharmanagar", "Kailasahar", "Udaipur", "Belonia"
+  ,"Lucknow", "Kanpur", "Varanasi", "Agra", "Allahabad (Prayagraj)"
+  ,"Dehradun", "Haridwar", "Rishikesh", "Haldwani", "Nainital"
+, "Kolkata", "Asansol", "Siliguri", "Durgapur", "Howrah"
+   
+  ];
+
+  cityInput.addEventListener('input', () => {
+    const input = cityInput.value.toLowerCase();
+    citySuggestionBox.innerHTML = '';
+
+    if (!input) {
+      citySuggestionBox.style.display = 'none';
+      return;
+    }
+
+    const filtered = cities.filter(city => city.toLowerCase().startsWith(input));
+
+    if (filtered.length === 0) {
+      citySuggestionBox.style.display = 'none';
+      return;
+    }
+
+    filtered.forEach(city => {
+      const div = document.createElement('div');
+      div.classList.add('suggestion-item');
+      div.textContent = city;
+      div.addEventListener('click', () => {
+        cityInput.value = city;
+        citySuggestionBox.innerHTML = '';
+        citySuggestionBox.style.display = 'none';
+      });
+      citySuggestionBox.appendChild(div);
+    });
+
+    citySuggestionBox.style.display = 'block';
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.input-group')) {
+      citySuggestionBox.innerHTML = '';
+      citySuggestionBox.style.display = 'none';
+    }
+  });
+</script>
+<script>
+  const stateInput = document.getElementById('state');
+  const state suggestions = document.getElementById('suggestion-box');
+
+  // Sample address suggestions - you can add more or get from API
+  const state = [
+     "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal"
+  ];
+
+  addressInput.addEventListener('input', () => {
+    const input = addressInput.value.toLowerCase();
+    suggestionBox.innerHTML = '';
+
+    if (!input) {
+      suggestionBox.style.display = 'none';
+      return;
+    }
+
+    const filtered = addresses.filter(addr => addr.toLowerCase().startsWith(input));
+    
+    if (filtered.length === 0) {
+      suggestionBox.style.display = 'none';
+      return;
+    }
+
+
+    
+</body>
+</html>
