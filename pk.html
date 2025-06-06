@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Business Name</title>
+  <style>
+    /* RESET + BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVBAR */
+    header {
+      background: #333;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      margin: 0 10px;
+      color: white;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: url('https://source.unsplash.com/1600x600/?business,office') center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 30px;
+    }
+    .about, .services, .contact {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* SERVICES */
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .service {
+      flex: 1 1 300px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* CONTACT FORM */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 12px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    button:hover {
+      background: #f39c12;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+      .service-list {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+ <logo="YP.png"></logo>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <h1>Welcome to Your Business</h1>
+  <p>We provide professional solutions to grow your business.</p>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>
+    We are a leading business in our field, providing excellent services and professional solutions for startups and enterprises.
+    With years of experience and a talented team, we ensure your success is our priority.
+  </p>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="services">
+  <h2>Our Services</h2>
+  <div class="service-list">
+    <div class="service">
+      <h3>Web Development</h3>
+      <p>We build fast, secure, and responsive websites tailored to your business needs.</p>
+    </div>
+    <div class="service">
+      <h3>Marketing</h3>
+      <p>Boost your brand visibility and attract customers with our smart marketing strategies.</p>
+    </div>
+    <div class="service">
+      <h3>Consulting</h3>
+      <p>Our experts guide you through every step of your business development journey.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>If you'd like to work with us or ask a question, send a message below:</p>
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="_replyto" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Your Business Name. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
