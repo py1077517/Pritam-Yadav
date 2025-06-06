@@ -17,15 +17,81 @@
 
       body {
     background-image: url('4040.jpg');
-    background-size: cover;       /* Make image cover entire area */
-    background-repeat: no-repeat; /* Prevent tiling */
-    background-position: center;  /* Center the image */
+    background-size: cover;       
+    background-repeat: no-repeat; 
+    background-position: center;  
   }
          
       <button style="padding: 20px 40px; font-size: 18px;" >Contact Us</button>  
+
       
+      .products {
+  padding: 40px;
+  text-align: center;
+  background : #f9f9f9;
+}
+
+.product {
+  display: inline-block;
+  width: 150px;
+  margin: 10px;
+  background: rgb(59, 0, 87);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product h3 {
+  margin: 10px 0 5px;
+}
+
+.product p {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.buy-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #2980b9;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
        
-    
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 20px;
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+    #orderForm {
+      display: none;
+      border: 1px solid #28a745;
+      padding: 20px;
+      max-width: 400px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #218838;
+    } 
       
   
   
@@ -62,23 +128,31 @@
   </script>
    <image src="images.jpg" width="500" height="500"> 
    <image src="1010.jpg" width="500" height="500"> 
-    <p style="color: rgb(235, 235, 235);">Web development is the process of creating, designing, and maintaining websites or web applications.<br> It involves both the frontend (user interface) and backend (server and database) development. <br>Frontend technologies like HTML, CSS, and JavaScript are used to build the visual and interactive parts of a website, <br>while backend technologies such as PHP, Node.js, or Python, along with databases like MySQL or MongoDB, handle the logic, data storage, and server-side operations.<br> Web development also includes aspects like responsive design, user experience (UX), and web security. It is a rapidly growing field with numerous career opportunities for developers and designers alike.
+    <p style="color: rgb(235, 235, 235);">Web development is the process of creating, designing, and maintaining websites or web applications.<br> It involves both the frontend (user interface) and backend (server and database) development. <br>Frontend technologies like HTML, CSS, and JavaScript are used to build the visual and interactive parts of a website, <br>while backend technologies such as PHP, Node.js, or Python, along with databases like MySQL or MongoDB, handle the logic, data storage, and server-side operations.<br> Web development also includes aspects like responsive design, user experience (UX), and web security. It is a rapidly growing field with numerous career opportunities for developers and designers alike.</p>
      <image src="2020.jpg" width="500" height="500">  
       <image src="3030.jpg" width="500" height="500"> 
         <a href="yadav.html" >
   <button>Contact Us For More Information</button>
 </a>
 
-
-
-
-
-
-
-
-</p>                                                    
+ </div>
+<!-- 📦 Product Section -->
+  <div class="product">
+    <h2>Cool T-Shirt</h2>
+    <img src="1010.jpg" alt="T-Shirt" width="100%">
+    <p><strong>Price:</strong> ₹150</p>
+  </div>
 
   
     
+  </div>
+
+<a href="order.html"><button>Buy Now</button></a>
+
+
+
+                                                   
+
+ 
 </body>
 </html>
